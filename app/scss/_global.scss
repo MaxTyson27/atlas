@@ -1,0 +1,168 @@
+
+body{
+  @extend %mic;
+  font-size: 17px;
+  line-height: 24px;
+  color: #000;
+}
+
+.wrapper{
+  overflow: hidden;
+  position: relative;
+  
+}
+
+.main{
+  position: relative;
+  &::after{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    width: 13px;
+    height: 100%;
+    background-image: url('../images/line-right.svg');
+    background-repeat: no-repeat;
+    // background-color: #6B6B6B;
+    right: 150px;
+    // filter: blur(1px);
+    top: 0;
+  }
+  
+}
+
+.container{
+  max-width: 1460px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+a{
+  color: inherit;
+}
+*{
+  outline: transparent;
+}
+
+.burger{
+  cursor: pointer;
+  width: 62px;
+  height: 37px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 11;
+  span{
+    border: 1px solid #FFFFFF;
+    width: 45px;
+    height: 2px;
+    transition: .3s;
+    &:nth-child(2){
+      width: 100%;
+    }
+  }
+  &.burger--active{
+    display: block;
+    height: 62px;
+    span{
+      border: 1px solid #000;
+      &:nth-child(2){
+        display: none;
+      }
+      &:first-child{
+        transform: rotate(45deg);
+      }
+      &:last-child{
+        transform: rotate(-45deg);
+      }
+      width: 100%;
+      bottom: 30px;
+      left: 0;
+      position: absolute;
+
+    }
+  }
+}
+
+.logo{
+  margin-left: 60px;
+  
+  object-fit: cover;
+  &-icon{
+    max-width: 245px;
+    height: 65px;
+    &.logo--active{
+      path{
+        &:not(:first-child){
+          fill: #000;
+        }
+      }
+      rect{
+        fill: #000;
+      }
+    }
+  }
+}
+
+.bullets{
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  transform: translateY(20px);
+  align-items: flex-end;
+  &__num{
+    padding-right: 10px;
+    font-size: 16px;
+    line-height: 18px;
+    position: relative;
+    margin-bottom: 25px;
+    display: block;
+    &::before{
+      content: '';
+      position: absolute;
+      height: 31px;
+      width: 1px;
+      background-color: #fff;
+      right: 4px;
+      top: -5px;
+    }
+  }
+  &__item{
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    &:not(:last-child){
+      margin-bottom: 14px;
+    }
+  }
+}
+
+img{
+  position: relative;
+  z-index: 3;
+}
+
+.swiper{
+  width: 800px;
+  &-wrapper{
+    padding-top: 30px;
+
+  }
+}
+
+
+
+.swiper-button-right,
+.swiper-button-left{
+  position: absolute;
+  top: 40%;
+  // transform: translateY(-50%);
+  left: -43px;
+}
+
+.swiper-button-right{
+  left: unset;
+  right: -43px;
+}
